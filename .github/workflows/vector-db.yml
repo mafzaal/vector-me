@@ -47,6 +47,7 @@ jobs:
     
     - name: Install vector-me
       run: |
+        uv venv
         uv pip install vector-me
     
     - name: Build Vector Database

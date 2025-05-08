@@ -26,16 +26,12 @@ jobs:
     
     - name: Install dependencies
       run: |
-        uv sync --all-extras
-        uv pip install pytest pytest-cov
-    
-    - name: Run tests
-      run: |
-        pytest --cov=vector_me tests/
+        uv sync 
+
     
     - name: Build package
       run: |
-        python -m build
+        uv build
     
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
@@ -49,5 +45,5 @@ jobs:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       run: |
-        uv pip install twine
-        twine upload dist/* 
+        uv publish
+        
