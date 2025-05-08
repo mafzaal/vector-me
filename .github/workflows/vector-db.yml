@@ -62,7 +62,7 @@ jobs:
           --api-key "${{ secrets.OPENAI_API_KEY }}"
     
     - name: Upload Vector Database
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: vector-db
         path: ${{ github.event.inputs.output_dir || 'vector-db' }}
